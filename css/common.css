@@ -1,0 +1,34 @@
+/*
+* @date 2012-05-04
+*/
+body, ul, li, h1, h2, h3, h4, dl, dt, dd, table, td, th { margin:0; padding:0; }
+ul, li { list-style:none; }
+h1, h2, h3, h4 { font-size:100%; }
+a { text-decoration:none; color:#787878; outline:none; }
+a:hover { text-decoration:underline; }
+body { font:12px/1.5 "微软雅黑","tahoma", Verdana, Geneva, sans-serif; color:#666; position:relative;}
+.clearfix:after{content:" "; display:block; height:0; clear:both; visibility:hidden;}
+.clearfix{zoom:1;}
+.fl { float:left;}
+.fr { float:right;}
+/*.public*/
+.main {margin:0 auto; width:980px;} 
+.footer { height:auto; background:#fafafa; border-top:1px solid #f3f3f3; padding:28px 0 40px;}
+.footer p { line-height:23px; color:#c6c6c6; text-align:center;}
+/*head*/
+.head-warp { background:#fbfbfb url(/p/page/img/navBg.gif) repeat-x 0 bottom;}
+.head-warp .head { width:980px; margin:0 auto; background-image:none;}
+.head { height:49px;  background:url(/p/page/img/line01.png) no-repeat 50% bottom; padding:14px 0 1px;}
+.head h1 { background:url(/p/page/img/logo.png) no-repeat; height:42px; width:178px; float:left; line-height:10em; overflow:hidden;}
+.head h1 a { display:block; width:100%; height:42px;}
+.nav-box { float:right; position:relative;}
+.nav-box ul { padding-top:8px;}
+.nav-box ul li { float:left; font-family:"微软雅黑"; font-size:14px; padding:0 12px; height:41px; line-height:41px;}
+.nav-box ul li a { color:#4b4b4b;}
+.nav-box ul li a:hover { text-decoration:none;}
+.nav-box ul li.last { font-family:\5b8b\4f53; font-size:12px; padding-top:1px;}
+.nav-box ul li.last a { color:#a2a2a1;}
+.nav-box .nav-line { position:absolute; left:0; bottom:0; height:2px; line-height:2px; font-size:0; width:52px; background:#35C4FD;}
+
+a { blr:expression(this.onFocus=this.blur()) } /*针对 IE*/
+a { outline:none; } /*针对firefox等*/
