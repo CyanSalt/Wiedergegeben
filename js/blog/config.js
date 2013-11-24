@@ -61,17 +61,7 @@ define('blog.config', function () {
      * @type {Array.<{{text: string, url: string}}>}
      */
     links: [
-      {text: '羽川汐', url: 'http://ippotsuko.com'},
-      {text: '铅笔君', url: 'http://blog.likelikeslike.com'},
-      {text: '铜芯科技', url: 'http://blog.typcn.com'},
-      {text: '小豆子仔', url: 'http://aboutall.cn'},
-      {text: 'Kirito', url: 'http://kirito.me'},
-      {text: '面包虫', url: 'http://retaker.me'},
-      {text: 'huhu', url: 'http://jbsd.tk'},
-      {text: 'i-square', url: 'http://i-square.tk'},
-      {text: '孟子易', url: 'http://bingkubei.tk'},
-      {text: '小林', url: 'http://linnsh.tk'},
-      {text: 'Echo', url: 'http://inecho.tk'},
+      {text: 'Example', url: 'http://www.example.com'},
     ],
     /**
      * Menu on sidebar.
@@ -80,9 +70,6 @@ define('blog.config', function () {
      */
     menu: [
       {text: '首页', url: ''},
-      {text: '站内项目', url: 'projects', file: 'archives/projects'},
-      {text: '朋友们', url: 'friends', file: 'archives/friends'},
-      {text: '关于Cyan', url: 'about', file: 'archives/about'},
       {text: 'Wiedersehen Wiki', url: 'wiki', file: 'archives/wiki'},
     ],
     /**
