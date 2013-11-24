@@ -46,5 +46,5 @@ http://cyanidea.com/#!/wiki
   &lt;/p&gt;
 &lt;/div&gt;
 
-CSS是http://chrome.360.cn/style/common.css……大数字的css……然后尾部加载http://chrome.360.cn/script/main.js。
+CSS是http://chrome.360.cn/style/common.css ……大数字的css……然后尾部加载http://chrome.360.cn/script/main.js 。
 
