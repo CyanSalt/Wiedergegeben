@@ -8,6 +8,13 @@
 
 
 define('blog.render', function () {
+  var $ = MINI.$;
+  var $$ = MINI.$$;
+  var EE = MINI.EE;
+  var HH = MINI.HTML;
+  var _ = MINI._;
+  var yamlminus = require('yamlminus');
+  var marked = require('marked');
   var window, document, ENV;
   /**
    * Stores the timestamp of AJAX operation to solve asynchronization conflicts.
@@ -118,11 +125,11 @@ define('blog.render', function () {
       $navigator.select('.previous').
           set('$', hasPrev ? '-disabled' : '+disabled').
           select('a').
-          set('@href', hasPrev ? ENV.HASH_CAP + hasPrev : '');
+          set('@href', hasPrev ? ENV.HASH_CAP + hasPrev : null);
       $navigator.select('.next').
           set('$', hasNext ? '-disabled' : '+disabled').
           select('a').
-          set('@href', hasNext ? ENV.HASH_CAP + hasNext : '');
+          set('@href', hasNext ? ENV.HASH_CAP + hasNext : null);
     }
     $navigator.set('$', (hasPrev || hasNext) ? '-shrink +in' : '+shrink -in');
   };
@@ -247,8 +254,13 @@ define('blog.render', function () {
   var togglePageComments = function (opt_url) {
     var $comment = $('#main .comments');
     if (opt_url) {
+      // duoshuo.com
       ENV.config.loadComment(window, $comment[0], opt_url,
-          ENV.BASE_URL + ENV.HASH_CAP + opt_url);
+          ENV.BASE_URL + '?htag=' + encodeURIComponent(opt_url));
+
+      // normal
+      //ENV.config.loadComment(window, $comment[0], opt_url,
+          //ENV.BASE_URL + ENV.HASH_CAP + opt_url);
       $('#main .comments').set('$', '-hide');
     } else {
       $comment.set('$', '+hide').fill();
@@ -330,6 +342,7 @@ define('blog.render', function () {
     addSiteLinks();
     toggleArticleNavigator();
     togglePageComments();
+
     // first visit with invalid hash tag
     if (oldHash === newHash &&
         newHash.substr(0, ENV.HASH_CAP.length) !== ENV.HASH_CAP &&

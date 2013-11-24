@@ -54,14 +54,14 @@ define('blog.config', function () {
      * 博客公告栏信息。
      * @type {string}
      */
-    bulletin: 'WordPress再见。膜拜笔笔……',
+    bulletin: 'Welcome!',
     /**
      * Links on side bar.
      * 博客相关链接。
      * @type {Array.<{{text: string, url: string}}>}
      */
     links: [
-      {text: 'Example', url: 'http://www.example.com'},
+      {text: 'EXAMPLE', url: 'http://www.example.com'},
     ],
     /**
      * Menu on sidebar.
@@ -96,6 +96,7 @@ define('blog.config', function () {
         container.className += ' ds-thread';
         container.setAttribute('data-thread-key', id);
         container.setAttribute('data-url', url);
+        container.setAttribute('data-title', document.title);
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
         ds.src = 'http://static.duoshuo.com/embed.js';
@@ -109,6 +110,7 @@ define('blog.config', function () {
         clone.className = 'comments hide';
         clone.setAttribute('data-thread-key', id);
         clone.setAttribute('data-url', url);
+        clone.setAttribute('data-title', document.title);
         container.parentNode.replaceChild(clone, container);
         window.DUOSHUO.EmbedThread(clone);
       }
@@ -122,6 +124,7 @@ define('blog.config', function () {
       //  window.disqus_disable_mobile = false;
       //  window.disqus_identifier = id;
       //  window.disqus_url = url;
+      //  window.disqus_title = document.title;
       //  container.id = 'disqus_thread';
       //  var dsq = document.createElement('script');
       //  dsq.type = 'text/javascript';
@@ -135,6 +138,7 @@ define('blog.config', function () {
       //    config: function () {
       //      this.page.identifier = id;
       //      this.page.url = url;
+      //      this.page.title = document.title;
       //    }
       //  });
       //}

@@ -15,11 +15,9 @@ http://cyanidea.com/#!/wiki
 
 3-core.js，item那里改了title: li.getAttribute('data-title').trim(),，加了summary: li.textContent.trim(),，也就是加了摘要。相应的render的loadArticleTitles函数循环里加了summary: list[i].summary，templates.js的listTitle改成了listTitle: '&lt;li class="title"&gt;&lt;a href="{{url}}"&gt;{{title}}&lt;/a&gt;&lt;p style="padding-left:12px"&gt;{{summary}}&lt;/p&gt;&lt;/li&gt;',
 
-4-基本上出现英文的地方我都翻译了……。还有那个分享我感觉没啥用，就注释掉了。
+4-index.html，标题和副标题的div加了style="text-align:center"，older和newer的&lt;a&gt;标签分别加了margin-left/right=-3px属性。
 
-5-index.html，标题和副标题的div加了style="text-align:center"，older和newer的&lt;a&gt;标签分别加了margin-left/right=-3px属性。
-
-6-顶栏和底栏只是为了和我站里其他页面保持一致。
+5-顶栏和底栏只是为了和我站里其他页面保持一致。
 
 顶栏：
 &lt;div class="head-warp"&gt;
