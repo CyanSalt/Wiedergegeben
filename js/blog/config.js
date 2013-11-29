@@ -61,7 +61,7 @@ define('blog.config', function () {
      * @type {Array.<{{text: string, url: string}}>}
      */
     links: [
-      {text: 'EXAMPLE', url: 'http://www.example.com'},
+      {text: 'Cyanidea', url: 'http://cyanidea.com'},
     ],
     /**
      * Menu on sidebar.
@@ -82,6 +82,7 @@ define('blog.config', function () {
      * Comment system Loader
      * 评论框载入函数。
      * @param {Object} window global object
+     * @param {Element} container container of comments
      * @param {string} id indentifier
      * @param {string} url full url
      */
