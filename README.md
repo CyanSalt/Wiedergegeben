@@ -11,7 +11,7 @@ http://cyanidea.com/blog/#!/wiki
 
 1-因为个人习惯我把i文件夹改名叫archives，o文件夹改名posts，相应的config和index也改掉了
 
-2-custom.css，为了看上去比较舒服，#title加了margin-top: 4.5rem/*70px*/，#subtitle加了margin-bottom: 3rem/*50px*/，然后因为后面加了摘要，要突出标题于是#content .contents .title &gt; a改成了font-size: 1.2rem；我嫌段落内的文字间距太小于是加了#content article加了line-height: 1.5rem;
+2-custom.css，为了看上去比较舒服，#title加了margin-top: 4.5rem/\*70px\*/，#subtitle加了margin-bottom: 3rem/\*50px\*/，然后因为后面加了摘要，要突出标题于是#content .contents .title &gt; a改成了font-size: 1.2rem；我嫌段落内的文字间距太小于是加了#content article加了line-height: 1.5rem;
 
 3-core.js，item那里改了title: li.getAttribute('data-title').trim(),，加了summary: li.textContent.trim(),，也就是加了摘要。相应的render的loadArticleTitles函数循环里加了summary: list[i].summary，templates.js的listTitle改成了listTitle: '&lt;li class="title"&gt;&lt;a href="{{url}}"&gt;{{title}}&lt;/a&gt;&lt;p style="padding-left:12px"&gt;{{summary}}&lt;/p&gt;&lt;/li&gt;',
 
