@@ -53,6 +53,16 @@ body {
 }
 
 /* body */
+.contents p {
+  padding-left: 12px;
+}
+.footer a {
+  color: #c6c6c6;
+}
+.article-info {
+  font-size: small;
+  color: #a0a0a0;
+}
 #sidebar-left .nav > li,
 #sidebar-right .nav > li {
   word-break: break-word;

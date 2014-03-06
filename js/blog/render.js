@@ -154,6 +154,7 @@ define('blog.render', function () {
       $listContainer.addFront(HH(ENV.templates_.listTitle, {
         title: list[i].title,
         url: ENV.HASH_CAP + list[i].url,
+        date: list[i].file.slice(15),
         summary: list[i].summary
       }));
     }
@@ -192,8 +193,8 @@ define('blog.render', function () {
     var url = newHash.substring(ENV.HASH_CAP.length);
     var fileUrl = getArticleFileUrl(url);
     if (fileUrl) {
-      setDocumentTitle('Loading...');
-      $('#content').ht('<p class="muted">loading...</p>');
+      setDocumentTitle('正在加载...');
+      $('#content').ht('<p class="muted">正在加载...</p>');
       var timestamp = Date.now();
       ajax_timestamp = timestamp;
       $.request('get', fileUrl).
@@ -311,7 +312,7 @@ define('blog.render', function () {
     loadPage(oldHash, newHash);
   };
   var goError = function (oldHash, newHash) {
-    setDocumentTitle('404 NOT FOUND - ' + ENV.config.title);
+    setDocumentTitle('文章不存在 - ' + ENV.config.title);
     var $button = EE('button', {'$': 'btn btn-link'}, 'click here to go back').
         on('click', function () {
           if (window.history.length > 1) {
@@ -338,19 +339,34 @@ define('blog.render', function () {
     addMenuItems();
     addSiteLinks();
     toggleArticleNavigator();
-    togglePageComments();
-    // first visit with invalid hash tag
-    if (oldHash === newHash &&
-        newHash.substr(0, ENV.HASH_CAP.length) !== ENV.HASH_CAP &&
-        $('#content:empty').length > 0) {
-      goHome(ENV.HASH_CAP, ENV.HASH_CAP);
-    // with hash tag of a page
-    } else if (newHash.substr(0, ENV.HASH_CAP.length) === ENV.HASH_CAP) {
-      var homeTagger = new RegExp('^'+_.escapeRegExp(ENV.HASH_CAP)+'(\\d+/)?$');
-      if (homeTagger.test(newHash)) {
-        goHome(oldHash, newHash);
-      } else {
-        goPage(oldHash, newHash);
+    oldHash = oldHash.replace(/^(#[^#]*)#.*$/, '$1');
+    newHash = newHash.replace(/^(#[^#]*)#.*$/, '$1');
+    var homeTagger = new RegExp('^'+_.escapeRegExp(ENV.HASH_CAP)+'(\\d+/)?$');
+   if (oldHash === newHash) {
+      if ($('#content:empty').length > 0) {
+        togglePageComments();
+        if (newHash.substr(0, ENV.HASH_CAP.length) !== ENV.HASH_CAP) {
+          goHome(ENV.HASH_CAP, ENV.HASH_CAP);
+        } else {
+          if (homeTagger.test(newHash)) {
+            goHome(oldHash, newHash);
+          } else {
+            goPage(oldHash, newHash);
+          }
+        }
+      }
+    } else {
+      if (newHash.substr(0, ENV.HASH_CAP.length) === ENV.HASH_CAP) {
+        togglePageComments();
+        if (homeTagger.test(newHash)) {
+          goHome(oldHash, newHash);
+        } else {
+          goPage(oldHash, newHash);
+        }
+      } else if (newHash.length) {
+        // #abc#def
+        window.history.replaceState(window.history.state, document.title,
+            ENV.BASE_URL + oldHash + newHash);
       }
     }
   };

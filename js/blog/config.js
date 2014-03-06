@@ -88,7 +88,7 @@ define('blog.config', function () {
      */
     loadComment: function (window, container, id, url) {
       // duoshuo.com
-      var duoshuo_shortname = 'cyanidea';
+      var duoshuo_shortname = 'duoshuo_shortname'; //修改此处
       // DON'T EDIT BELOW THIS LINE
       if (!duoshuo_shortname) { return; }
       var document = window.document;

@@ -13,7 +13,7 @@ define('blog.templates', function () {
    * @constant {Object.<string, string>}
    */
   return {
-    listTitle: '<li class="title"><a href="{{url}}">{{title}}</a><p style="padding-left:12px">{{summary}}</p></li>',
+    listTitle: '<li class="title"><a href="{{url}}">{{title}}&nbsp;&nbsp;<span class="article-info">[{{date.slice(0,4)}}/{{date.slice(4,6)}}/{{date.slice(6,8)}}]</span></a><p>{{summary}}</p></li>',
     linkItem: '<li class="link-item"><a href="{{url}}" target="_blank">{{text}}</a></li>',
     menuItem: [
       '<li class="menu-item">',
